@@ -1,6 +1,7 @@
 {
   "name": "dataset-check-frontend",
   "version": "1.0.0",
+  "license": "MIT",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@11.25.0",

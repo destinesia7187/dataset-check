@@ -1,5 +1,7 @@
 # Dataset Check
 
+[MIT license](LICENSE) · [Security policy](SECURITY.md)
+
 A local web application for checking the quality of open tabular data. Upload a CSV without changing its original values, review suggested column types, and validate it against configurable rules. Results include a summary, charts, a filterable issue table, duplicate groups, and three downloadable reports.
 
 **Checks:** required values, exact duplicate records, uniqueness of individual columns, `text / integer / decimal / date` types, and inclusive numeric ranges. Issues and problematic records are counted separately. The application detects rule violations; a result with no issues does not prove that the data is factually accurate.
@@ -219,3 +221,12 @@ data/                local user data; excluded from Git
 
 The SQLite catalog stores metadata, published resources, and idempotency keys. Source data and results are stored separately per resource; a resource is published only after its files are ready. The child process is bounded by time and issue count, while the HTTP process remains available for status requests and older results.
 
+## License
+
+Original project code and documentation are licensed under the [MIT License](LICENSE).
+
+The bundled [Iris dataset](examples/open-data/README.md) retains its **CC BY 4.0** license and attribution. Third-party dependencies retain their respective licenses. The external design references in [design/](design/) remain subject to their original rights and terms; they are excluded from the project's MIT grant.
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for supported versions, the local deployment security model, and instructions for reporting vulnerabilities privately.
