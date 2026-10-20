@@ -1,0 +1,35 @@
+# Local data and secrets
+.env
+.env.*
+!.env.example
+/data/
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.db
+
+# Python
+.venv/
+backend/.deps/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Frontend and browser test output
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+
+# Generated workloads and benchmark copies
+examples/generated/
+benchmark-results/
+*.log
+.DS_Store
+Thumbs.db

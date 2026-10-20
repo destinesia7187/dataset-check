@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "decimal_separator": ".",
+  "check_duplicate_rows": true,
+  "columns": [
+    {"column_id": "c1", "required": true, "unique": true, "expected_type": "text", "range": null},
+    {"column_id": "c2", "required": true, "unique": false, "expected_type": "text", "range": null},
+    {"column_id": "c3", "required": true, "unique": false, "expected_type": "integer", "range": {"min": "0", "max": "100"}},
+    {"column_id": "c4", "required": false, "unique": false, "expected_type": "date", "range": null}
+  ]
+}

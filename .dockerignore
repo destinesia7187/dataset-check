@@ -1,0 +1,15 @@
+.git
+.venv
+backend/.deps
+**/node_modules
+**/__pycache__
+**/.pytest_cache
+**/.ruff_cache
+frontend/dist
+frontend/playwright-report
+frontend/test-results
+data
+examples/generated
+benchmark-results
+.env
+*.log

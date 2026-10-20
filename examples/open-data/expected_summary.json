@@ -1,0 +1,23 @@
+{
+  "total_records": 150,
+  "problematic_records": 5,
+  "clean_records": 145,
+  "total_issues": 5,
+  "by_rule": [
+    {"rule_code": "REQUIRED_VALUE_MISSING", "issue_count": 0, "record_count": 0},
+    {"rule_code": "INVALID_TYPE", "issue_count": 0, "record_count": 0},
+    {"rule_code": "OUT_OF_RANGE", "issue_count": 0, "record_count": 0},
+    {"rule_code": "NON_UNIQUE_VALUE", "issue_count": 0, "record_count": 0},
+    {"rule_code": "DUPLICATE_ROW", "issue_count": 5, "record_count": 5}
+  ],
+  "by_column": [
+    {"column_id": "c1", "issue_count": 0, "record_count": 0},
+    {"column_id": "c2", "issue_count": 0, "record_count": 0},
+    {"column_id": "c3", "issue_count": 0, "record_count": 0},
+    {"column_id": "c4", "issue_count": 0, "record_count": 0},
+    {"column_id": "c5", "issue_count": 0, "record_count": 0}
+  ],
+  "row_level": {"issue_count": 5, "record_count": 5},
+  "duplicate_rows": {"enabled": true, "group_count": 2, "participant_count": 5, "extra_count": 3},
+  "unique_columns": []
+}

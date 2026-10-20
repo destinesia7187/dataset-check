@@ -1,0 +1,96 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend/requirements*.txt
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - run: python -m ruff check backend/app backend/tests scripts
+      - run: python -m ruff format --check backend/app backend/tests scripts
+      - run: python -m pytest
+        working-directory: backend
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.15.0'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm --dir frontend install --frozen-lockfile
+      - run: pnpm --dir frontend build
+
+  api-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - name: Run real HTTP API examples
+        shell: bash
+        run: |
+          python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --workers 1 > server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" || true' EXIT
+          for i in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:8000/api/v1/health; then break; fi
+            sleep 1
+          done
+          python scripts/check_example.py
+          python scripts/check_example.py --csv examples/open-data/iris.csv --rules examples/open-data/rules.json --expected examples/open-data/expected_summary.json --output benchmark-results/iris
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: api-smoke-server-log
+          path: server.log
+
+  browser-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.15.0'
+      - run: python -m pip install -r backend/requirements-dev.txt
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm --dir frontend install --frozen-lockfile
+      - run: pnpm --dir frontend build
+      - run: pnpm exec playwright install --with-deps chromium
+        working-directory: frontend
+      - name: Browser upload, rules, report, download, reload
+        shell: bash
+        run: |
+          python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --workers 1 > server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill "$SERVER_PID" || true' EXIT
+          for i in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:8000/api/v1/health; then break; fi
+            sleep 1
+          done
+          node scripts/e2e.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-e2e
+          path: |
+            benchmark-results/e2e
+            server.log

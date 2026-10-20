@@ -1,0 +1,52 @@
+/* Operate reference tokens, adapted from design/variables (1).css.
+   System fonts keep the workspace independent of remote services. */
+:root {
+  --color-forest-ink: #09352e;
+  --color-bone-white: #ffffff;
+  --color-sage-paper: #e0e0e0;
+  --color-ash-gray: #e5e5e5;
+  --color-muted-sage: #77aa83;
+  --color-lichen: #cad3d2;
+  --color-slate-smoke: #6c7a79;
+  --color-charcoal-bark: #29211e;
+  --color-moss: #85c093;
+  --color-deep-fern: #007010;
+  --color-pine: #117025;
+  --color-emerald: #008023;
+  --font-denim: "Helvetica Neue", Arial, "Segoe UI", sans-serif;
+  --font-muoto: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-cinetype: var(--font-muoto);
+  --text-caption: 11px;
+  --text-body: 14px;
+  --text-body-lg: 16px;
+  --text-subheading: 18px;
+  --text-heading-sm: 20px;
+  --text-heading: 32px;
+  --text-display: 48px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --page-max-width: 1280px;
+  --section-gap: 64px;
+  --card-padding: 20px;
+  --element-gap: 8px;
+  --radius-tags: 4px;
+  --radius-cards: 12px;
+  --radius-buttons: 12px;
+  --shadow-subtle: inset 0 0 0 .5px #cad3d2;
+  --ink: var(--color-forest-ink);
+  --canvas: var(--color-sage-paper);
+  --paper: var(--color-bone-white);
+  --line: var(--color-lichen);
+  --muted: #4f675e;
+  --accent: var(--color-moss);
+  --error: #8b3e35;
+}

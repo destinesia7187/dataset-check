@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "decimal_separator": ".",
+  "check_duplicate_rows": true,
+  "columns": [
+    {"column_id": "c1", "required": true, "unique": false, "expected_type": "decimal", "range": {"min": "0", "max": "20"}},
+    {"column_id": "c2", "required": true, "unique": false, "expected_type": "decimal", "range": {"min": "0", "max": "20"}},
+    {"column_id": "c3", "required": true, "unique": false, "expected_type": "decimal", "range": {"min": "0", "max": "20"}},
+    {"column_id": "c4", "required": true, "unique": false, "expected_type": "decimal", "range": {"min": "0", "max": "20"}},
+    {"column_id": "c5", "required": true, "unique": false, "expected_type": "text", "range": null}
+  ]
+}

@@ -1,0 +1,10 @@
+id,name,population,opened_at
+A,Object A,10,2024-02-29
+B,,5,2024-02-30
+B,Object B,-1,2024-03-01
+C,Object C,abc,
+A,Object A,10,2024-02-29
+,Object D,100,2024-03-02
+D,Object E,1.5,2024-03-03
+E,Object F,"  ",2024-03-04
+F,Object G,0,2024-03-05

@@ -1,0 +1,524 @@
+{
+  "report_schema_version": "1.1",
+  "algorithm_version": "1.0.0",
+  "dataset": {
+    "dataset_id": "80ee25df-f1d6-4132-af98-54d5caea0c0f",
+    "original_filename": "acceptance.csv",
+    "file_size_bytes": 238,
+    "file_sha256": "4a4051879738f25de4c82d6c5c84591822a06817b73164474bf6a57a10560dce",
+    "row_count": 9,
+    "column_count": 4,
+    "created_at": "2026-10-19T14:27:51.693Z",
+    "csv": {
+      "encoding": "utf-8",
+      "delimiter": ","
+    },
+    "ignored_blank_line_count": 0
+  },
+  "columns": [
+    {
+      "column_id": "c1",
+      "position": 1,
+      "original_name": "id",
+      "display_name": "id"
+    },
+    {
+      "column_id": "c2",
+      "position": 2,
+      "original_name": "name",
+      "display_name": "name"
+    },
+    {
+      "column_id": "c3",
+      "position": 3,
+      "original_name": "population",
+      "display_name": "population"
+    },
+    {
+      "column_id": "c4",
+      "position": 4,
+      "original_name": "opened_at",
+      "display_name": "opened_at"
+    }
+  ],
+  "configuration_snapshot": {
+    "schema_version": "1.0",
+    "decimal_separator": ".",
+    "check_duplicate_rows": true,
+    "columns": [
+      {
+        "column_id": "c1",
+        "required": true,
+        "unique": true,
+        "expected_type": "text",
+        "range": null
+      },
+      {
+        "column_id": "c2",
+        "required": true,
+        "unique": false,
+        "expected_type": "text",
+        "range": null
+      },
+      {
+        "column_id": "c3",
+        "required": true,
+        "unique": false,
+        "expected_type": "integer",
+        "range": {
+          "min": "0",
+          "max": "100"
+        }
+      },
+      {
+        "column_id": "c4",
+        "required": false,
+        "unique": false,
+        "expected_type": "date",
+        "range": null
+      }
+    ]
+  },
+  "profile": [
+    {
+      "column_id": "c1",
+      "missing_count": 1,
+      "non_missing_count": 8
+    },
+    {
+      "column_id": "c2",
+      "missing_count": 1,
+      "non_missing_count": 8
+    },
+    {
+      "column_id": "c3",
+      "missing_count": 1,
+      "non_missing_count": 8
+    },
+    {
+      "column_id": "c4",
+      "missing_count": 1,
+      "non_missing_count": 8
+    }
+  ],
+  "summary": {
+    "total_records": 9,
+    "problematic_records": 8,
+    "clean_records": 1,
+    "total_issues": 13,
+    "by_rule": [
+      {
+        "rule_code": "REQUIRED_VALUE_MISSING",
+        "issue_count": 3,
+        "record_count": 3
+      },
+      {
+        "rule_code": "INVALID_TYPE",
+        "issue_count": 3,
+        "record_count": 3
+      },
+      {
+        "rule_code": "OUT_OF_RANGE",
+        "issue_count": 1,
+        "record_count": 1
+      },
+      {
+        "rule_code": "NON_UNIQUE_VALUE",
+        "issue_count": 4,
+        "record_count": 4
+      },
+      {
+        "rule_code": "DUPLICATE_ROW",
+        "issue_count": 2,
+        "record_count": 2
+      }
+    ],
+    "by_column": [
+      {
+        "column_id": "c1",
+        "issue_count": 5,
+        "record_count": 5
+      },
+      {
+        "column_id": "c2",
+        "issue_count": 1,
+        "record_count": 1
+      },
+      {
+        "column_id": "c3",
+        "issue_count": 4,
+        "record_count": 4
+      },
+      {
+        "column_id": "c4",
+        "issue_count": 1,
+        "record_count": 1
+      }
+    ],
+    "row_level": {
+      "issue_count": 2,
+      "record_count": 2
+    },
+    "duplicate_rows": {
+      "enabled": true,
+      "group_count": 1,
+      "participant_count": 2,
+      "extra_count": 1
+    },
+    "unique_columns": [
+      {
+        "column_id": "c1",
+        "group_count": 2,
+        "participant_count": 4,
+        "extra_count": 2
+      }
+    ]
+  },
+  "duplicate_groups": [
+    {
+      "group_id": "unique-c1-1",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "column_id": "c1",
+      "normalized_key": "A",
+      "participant_count": 2,
+      "extra_count": 1,
+      "row_indices": [
+        1,
+        5
+      ]
+    },
+    {
+      "group_id": "unique-c1-2",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "column_id": "c1",
+      "normalized_key": "B",
+      "participant_count": 2,
+      "extra_count": 1,
+      "row_indices": [
+        2,
+        3
+      ]
+    },
+    {
+      "group_id": "row-1",
+      "rule_code": "DUPLICATE_ROW",
+      "column_id": null,
+      "normalized_key": null,
+      "participant_count": 2,
+      "extra_count": 1,
+      "row_indices": [
+        1,
+        5
+      ]
+    }
+  ],
+  "issues": [
+    {
+      "issue_id": "issue-1",
+      "row_index": 1,
+      "column_id": "c1",
+      "column_name": "id",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "message": "The value in field “id” occurs in 2 records",
+      "raw_value": "A",
+      "rule_parameters": {
+        "comparison": "trimmed_case_sensitive_string",
+        "group_size": 2
+      },
+      "duplicate_group_id": "unique-c1-1"
+    },
+    {
+      "issue_id": "issue-2",
+      "row_index": 1,
+      "column_id": null,
+      "column_name": null,
+      "rule_code": "DUPLICATE_ROW",
+      "message": "This record exactly matches 1 other record",
+      "raw_value": null,
+      "rule_parameters": {
+        "comparison": "exact_raw_values",
+        "group_size": 2
+      },
+      "duplicate_group_id": "row-1"
+    },
+    {
+      "issue_id": "issue-3",
+      "row_index": 2,
+      "column_id": "c1",
+      "column_name": "id",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "message": "The value in field “id” occurs in 2 records",
+      "raw_value": "B",
+      "rule_parameters": {
+        "comparison": "trimmed_case_sensitive_string",
+        "group_size": 2
+      },
+      "duplicate_group_id": "unique-c1-2"
+    },
+    {
+      "issue_id": "issue-4",
+      "row_index": 2,
+      "column_id": "c2",
+      "column_name": "name",
+      "rule_code": "REQUIRED_VALUE_MISSING",
+      "message": "Required field “name” is empty",
+      "raw_value": "",
+      "rule_parameters": {
+        "required": true
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-5",
+      "row_index": 2,
+      "column_id": "c4",
+      "column_name": "opened_at",
+      "rule_code": "INVALID_TYPE",
+      "message": "Expected a date in YYYY-MM-DD format; received “2024-02-30”",
+      "raw_value": "2024-02-30",
+      "rule_parameters": {
+        "expected_type": "date",
+        "decimal_separator": null,
+        "date_format": "YYYY-MM-DD",
+        "max_digits": null
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-6",
+      "row_index": 3,
+      "column_id": "c1",
+      "column_name": "id",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "message": "The value in field “id” occurs in 2 records",
+      "raw_value": "B",
+      "rule_parameters": {
+        "comparison": "trimmed_case_sensitive_string",
+        "group_size": 2
+      },
+      "duplicate_group_id": "unique-c1-2"
+    },
+    {
+      "issue_id": "issue-7",
+      "row_index": 3,
+      "column_id": "c3",
+      "column_name": "population",
+      "rule_code": "OUT_OF_RANGE",
+      "message": "Value -1 is below the minimum 0",
+      "raw_value": "-1",
+      "rule_parameters": {
+        "expected_type": "integer",
+        "min": "0",
+        "max": "100",
+        "decimal_separator": null
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-8",
+      "row_index": 4,
+      "column_id": "c3",
+      "column_name": "population",
+      "rule_code": "INVALID_TYPE",
+      "message": "Expected an integer; received “abc”",
+      "raw_value": "abc",
+      "rule_parameters": {
+        "expected_type": "integer",
+        "decimal_separator": null,
+        "date_format": null,
+        "max_digits": 100
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-9",
+      "row_index": 5,
+      "column_id": "c1",
+      "column_name": "id",
+      "rule_code": "NON_UNIQUE_VALUE",
+      "message": "The value in field “id” occurs in 2 records",
+      "raw_value": "A",
+      "rule_parameters": {
+        "comparison": "trimmed_case_sensitive_string",
+        "group_size": 2
+      },
+      "duplicate_group_id": "unique-c1-1"
+    },
+    {
+      "issue_id": "issue-10",
+      "row_index": 5,
+      "column_id": null,
+      "column_name": null,
+      "rule_code": "DUPLICATE_ROW",
+      "message": "This record exactly matches 1 other record",
+      "raw_value": null,
+      "rule_parameters": {
+        "comparison": "exact_raw_values",
+        "group_size": 2
+      },
+      "duplicate_group_id": "row-1"
+    },
+    {
+      "issue_id": "issue-11",
+      "row_index": 6,
+      "column_id": "c1",
+      "column_name": "id",
+      "rule_code": "REQUIRED_VALUE_MISSING",
+      "message": "Required field “id” is empty",
+      "raw_value": "",
+      "rule_parameters": {
+        "required": true
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-12",
+      "row_index": 7,
+      "column_id": "c3",
+      "column_name": "population",
+      "rule_code": "INVALID_TYPE",
+      "message": "Expected an integer; received “1.5”",
+      "raw_value": "1.5",
+      "rule_parameters": {
+        "expected_type": "integer",
+        "decimal_separator": null,
+        "date_format": null,
+        "max_digits": 100
+      },
+      "duplicate_group_id": null
+    },
+    {
+      "issue_id": "issue-13",
+      "row_index": 8,
+      "column_id": "c3",
+      "column_name": "population",
+      "rule_code": "REQUIRED_VALUE_MISSING",
+      "message": "Required field “population” is empty",
+      "raw_value": "  ",
+      "rule_parameters": {
+        "required": true
+      },
+      "duplicate_group_id": null
+    }
+  ],
+  "problematic_records": [
+    {
+      "row_index": 1,
+      "values": [
+        "A",
+        "Object A",
+        "10",
+        "2024-02-29"
+      ],
+      "violation_count": 2,
+      "rule_codes": [
+        "NON_UNIQUE_VALUE",
+        "DUPLICATE_ROW"
+      ]
+    },
+    {
+      "row_index": 2,
+      "values": [
+        "B",
+        "",
+        "5",
+        "2024-02-30"
+      ],
+      "violation_count": 3,
+      "rule_codes": [
+        "REQUIRED_VALUE_MISSING",
+        "INVALID_TYPE",
+        "NON_UNIQUE_VALUE"
+      ]
+    },
+    {
+      "row_index": 3,
+      "values": [
+        "B",
+        "Object B",
+        "-1",
+        "2024-03-01"
+      ],
+      "violation_count": 2,
+      "rule_codes": [
+        "OUT_OF_RANGE",
+        "NON_UNIQUE_VALUE"
+      ]
+    },
+    {
+      "row_index": 4,
+      "values": [
+        "C",
+        "Object C",
+        "abc",
+        ""
+      ],
+      "violation_count": 1,
+      "rule_codes": [
+        "INVALID_TYPE"
+      ]
+    },
+    {
+      "row_index": 5,
+      "values": [
+        "A",
+        "Object A",
+        "10",
+        "2024-02-29"
+      ],
+      "violation_count": 2,
+      "rule_codes": [
+        "NON_UNIQUE_VALUE",
+        "DUPLICATE_ROW"
+      ]
+    },
+    {
+      "row_index": 6,
+      "values": [
+        "",
+        "Object D",
+        "100",
+        "2024-03-02"
+      ],
+      "violation_count": 1,
+      "rule_codes": [
+        "REQUIRED_VALUE_MISSING"
+      ]
+    },
+    {
+      "row_index": 7,
+      "values": [
+        "D",
+        "Object E",
+        "1.5",
+        "2024-03-03"
+      ],
+      "violation_count": 1,
+      "rule_codes": [
+        "INVALID_TYPE"
+      ]
+    },
+    {
+      "row_index": 8,
+      "values": [
+        "E",
+        "Object F",
+        "  ",
+        "2024-03-04"
+      ],
+      "violation_count": 1,
+      "rule_codes": [
+        "REQUIRED_VALUE_MISSING"
+      ]
+    }
+  ],
+  "run": {
+    "run_id": "5e43aea2-024d-407b-ac2b-2ae9919d087d",
+    "dataset_id": "80ee25df-f1d6-4132-af98-54d5caea0c0f",
+    "created_at": "2026-10-19T14:27:51.730Z",
+    "started_at": "2026-10-19T14:27:51.743Z",
+    "finished_at": "2026-10-19T14:27:51.948Z",
+    "duration_ms": 203,
+    "status": "succeeded"
+  }
+}
